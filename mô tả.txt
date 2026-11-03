@@ -1,0 +1,95 @@
+Bạn là một lập trình viên backend và frontend dày dặn kinh nghiệm, chuyên xây dựng các hệ thống website Thương Mại Điện Tử bằng PHP thuần theo mô hình MVC hiện đại, chuẩn bảo mật.
+
+Tôi muốn bạn giúp tôi phát triển mã nguồn chi tiết cho một website thương mại điện tử (ví dụ: TechStore) dựa trên cấu trúc thư mục chuẩn dưới đây:
+
+TechStore/
+├── 📁 assets/                          -> Tài nguyên tĩnh chung (CSS, JS, Images...)
+│   ├── 📁 css/
+│   │   ├── 📄 main.css                 -> Style chính cho trang người dùng
+│   │   ├── 📄 admin.css                -> Style riêng cho trang quản trị
+│   │   └── 📄 responsive.css           -> Xử lý giao diện mobile/tablet
+│   ├── 📁 js/
+│   │   ├── 📄 main.js                  -> Xử lý sự kiện JS phía người dùng
+│   │   ├── 📄 admin.js                 -> Xử lý biểu đồ, bảng dữ liệu bên admin
+│   │   └── 📄 validator.js             -> Kiểm tra form đăng ký/đăng nhập
+│   ├── 📁 images/                      -> Ảnh tĩnh, logo, banner mặc định
+│   └── 📁 uploads/                     -> Thư mục chứa file do người dùng tải lên (avatar, ảnh sản phẩm)
+│
+├── 📁 views/                           -> Toàn bộ giao diện (HTML/PHP)
+│   ├── 📁 client/                      -> Giao diện dành cho Khách hàng / Người dùng
+│   │   ├── 📁 layouts/
+│   │   │   ├── 📄 header.php           -> Thanh điều hướng (Logo, Menu, Giỏ hàng, Tài khoản)
+│   │   │   ├── 📄 footer.php           -> Chân trang (Thông tin công ty, Liên kết nhanh, Mạng xã hội)
+│   │   │   └── 📄 sidebar.php          -> Cột phụ (dùng cho trang danh mục, bài viết)
+│   │   ├── 📁 pages/
+│   │   │   ├── 📄 home.php             -> Trang chủ (Banner slider, Sản phẩm nổi bật, Tin tức)
+│   │   │   ├── 📄 products.php         -> Trang danh sách sản phẩm (Lọc, tìm kiếm, phân trang)
+│   │   │   ├── 📄 product-detail.php   -> Trang chi tiết sản phẩm (Mô tả, giá, nút mua, đánh giá)
+│   │   │   ├── 📄 cart.php             -> Giỏ hàng (Danh sách sản phẩm đã chọn, tăng giảm số lượng)
+│   │   │   ├── 📄 checkout.php         -> Thanh toán (Điền thông tin nhận hàng, chọn phương thức thanh toán)
+│   │   │   ├── 📄 login.php            -> Đăng nhập tài khoản
+│   │   │   ├── 📄 register.php         -> Đăng ký tài khoản mới
+│   │   │   └── 📄 contact.php          -> Liên hệ (Form gửi tin nhắn, bản đồ)
+│   │   └── 📁 profile/                 -> Khu vực quản lý cá nhân của User
+│   │       ├── 📄 dashboard.php        -> Tổng quan tài khoản
+│   │       ├── 📄 orders.php           -> Lịch sử đơn hàng đã mua
+│   │       └── 📄 settings.php         -> Đổi mật khẩu, cập nhật thông tin cá nhân
+│   │
+│   └── 📁 admin/                       -> Giao diện dành cho Quản trị viên (Admin)
+│       ├── 📁 layouts/
+│       │   ├── 📄 header.php           -> Header admin (Thông báo, thông tin admin đang đăng nhập)
+│       │   ├── 📄 footer.php           -> Chân trang admin
+│       │   └── 📄 sidebar.php          -> Menu dọc quản trị (Quản lý user, sản phẩm, đơn hàng...)
+│       └── 📁 pages/
+│           ├── 📄 dashboard.php        -> Trang tổng quan (Thống kê doanh thu, biểu đồ, số lượng đơn hàng)
+│           ├── 📁 products/
+│           │   ├── 📄 list.php         -> Danh sách sản phẩm (Bảng quản lý, nút Sửa/Xóa)
+│           │   ├── 📄 add.php          -> Form thêm sản phẩm mới
+│           │   └── 📄 edit.php         -> Form chỉnh sửa sản phẩm
+│           ├── 📁 categories/
+│           │   ├── 📄 list.php         -> Quản lý danh mục sản phẩm
+│           │   └── 📄 add-edit.php     -> Thêm/Sửa danh mục
+│           ├── 📁 orders/
+│           │   ├── 📄 list.php         -> Danh sách đơn hàng từ khách gửi lên
+│           │   └── 📄 detail.php       -> Xem chi tiết đơn hàng & duyệt đơn (Đang xử lý, Đang giao, Hoàn thành)
+│           └── 📁 users/
+│               └── 📄 list.php         -> Quản lý danh sách thành viên, khóa/mở tài khoản
+│
+├── 📁 controllers/                     -> Xử lý logic nghiệp vụ
+│   ├── 📄 HomeController.php           -> Xử lý dữ liệu trang chủ
+│   ├── 📄 ProductController.php        -> Xử lý tìm kiếm, xem chi tiết sản phẩm
+│   ├── 📄 CartController.php           -> Xử lý thêm vào giỏ hàng, đặt hàng
+│   ├── 📄 AuthController.php           -> Xử lý Đăng nhập, Đăng ký, Đăng xuất
+│   ├── 📄 UserController.php           -> Xử lý trang cá nhân người dùng
+│   └── 📁 admin/                       -> Controllers riêng cho phía Admin
+│       ├── 📄 AdminController.php      -> Thống kê doanh thu, trang chủ admin
+│       ├── 📄 ProductManageController.php -> CRUD sản phẩm
+│       ├── 📄 OrderManageController.php -> Duyệt đơn hàng
+│       └── 📄 UserManageController.php  -> Quản lý tài khoản người dùng
+│
+├── 📁 models/                          -> Thao tác cơ sở dữ liệu (Database)
+│   ├── 📄 Database.php                 -> File đọc thông tin từ `.env` và kết nối CSDL (PDO)
+│   ├── 📄 ProductModel.php             -> Câu lệnh SQL truy vấn sản phẩm
+│   ├── 📄 UserModel.php                -> Câu lệnh SQL xử lý user, phân quyền
+│   ├── 📄 CategoryModel.php            -> Câu lệnh SQL danh mục
+│   └── 📄 OrderModel.php               -> Câu lệnh SQL lưu trữ hóa đơn, giỏ hàng
+│
+├── 📁 includes/                        -> Các hàm bổ trợ dùng chung
+│   ├── 📄 functions.php                -> Các hàm tiện ích (gửi email, mã hóa mật khẩu, cắt chuỗi...)
+│   └── 📄 auth_middleware.php          -> Kiểm tra quyền đăng nhập (chặn người thường vào trang admin)
+│
+├── 📄 index.php                        -> Cổng vào chính của trang User (Routing trung tâm)
+├── 📄 admin.php                        -> Cổng vào chính của trang Admin
+├── 📄 .env                             -> File chứa thông tin kết nối SQL và cấu hình bảo mật
+├── 📄 .htaccess                        -> Cấu hình URL thân thiện và chặn lộ file `.env`
+└── 📄 config.php                       -> Khởi tạo và nạp các hằng số hệ thống từ file `.env`
+
+---
+YÊU CẦU LÀM VIỆC:
+1. Hãy bắt đầu viết code cho từng phần/file cốt lõi trước (bắt đầu từ file kết nối cơ sở dữ liệu `Database.php`, file cấu hình `.env`, `.htaccess`, và các file `index.php`, `header.php`, `footer.php`, `HomeController.php`).
+2. Code cần viết rõ ràng, sạch sẽ, có comment giải thích bằng tiếng Việt.
+3. Khi tôi yêu cầu viết file nào, bạn hãy xuất toàn bộ mã nguồn chuẩn của file đó để tôi có thể copy và tạo trực tiếp vào dự án của mình. 
+4. kết nối sql thì website mới hiện ra, không có kết nối sql thì yêu cầu kết nối sql
+5. giao diện nó phải theo phong cách và quy tắc trong các ảnh trên
+6. website có hiệu ứng đẹp và bắt mắt có banner di chuyển thay đổi.
+

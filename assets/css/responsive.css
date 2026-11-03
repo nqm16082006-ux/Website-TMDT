@@ -1,0 +1,115 @@
+/* ==========================================================================
+   CSS XỬ LÝ GIAO DIỆN RESPONSIVE MOBILE & TABLET (RESPONSIVE.CSS)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .header-container {
+        flex-wrap: wrap;
+    }
+    
+    .search-bar {
+        order: 3;
+        max-width: 100%;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cart-content-grid, .checkout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-detail-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mascot-left, .mascot-right {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-slider-container {
+        min-height: 240px;
+    }
+
+    .slide-item {
+        padding: 20px;
+    }
+
+    .slide-content {
+        max-width: 100%;
+    }
+
+    .slide-graphic {
+        display: none;
+    }
+
+    .slide-title {
+        font-size: 18px;
+    }
+
+    .slide-price {
+        font-size: 22px;
+    }
+
+    .form-row-2, .form-row-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-action-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .location-selector {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .financial-ticker-bar {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .countdown-timeline-bar {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .active-countdown-box {
+        width: 100%;
+        justify-content: center;
+    }
+}
